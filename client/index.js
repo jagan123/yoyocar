@@ -4,6 +4,12 @@ Template.createRide.onRendered(function() {
     });  
 })
 
+Template.list.helpers({
+ rides: function(){
+  return Rides.find();
+ } 
+}),
+
 Template.createRide.events({
   'submit': function(e) {
     var ride = {
