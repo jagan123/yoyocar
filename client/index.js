@@ -10,6 +10,12 @@ Template.list.helpers({
  } 
 }),
 
+Template.myRides.helpers({
+  myRides: function() {
+    return Rides.find({'ride.userId':Meteor.userId()});
+  }
+}),
+
 Template.createRide.events({
   'submit': function(e) {
     var ride = {
@@ -19,6 +25,7 @@ Template.createRide.events({
       desc: e.target.desc.value,
       seats: e.target.seats.value,
       createdAt: new Date(),
+      userId: Meteor.user()._id
     };
     Meteor.call('createRide', ride);
       $('textarea').val('');

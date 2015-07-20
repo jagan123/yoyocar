@@ -10,3 +10,6 @@ insecure
 iron:router
 tsega:bootstrap3-datetimepicker
 msavin:mongol
+mizzao:autocomplete
+accounts-ui
+accounts-facebook
