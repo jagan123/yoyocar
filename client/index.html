@@ -69,7 +69,12 @@
 <template name="list">
 <div class="container">
 <h2>My Rides</h2>
+{{#if currentUser}}
 {{> myRides}}
+{{> loginButtons}}
+{{else}}
+{{> loginButtons}}
+{{/if}}
 <h2>All Rides</h2>
 <div class="row">
   <table class="table table-striped table-hover table-bordered .table-condensed">
