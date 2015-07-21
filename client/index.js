@@ -2,7 +2,8 @@ Template.createRide.onRendered(function() {
   this.$('#datetimepicker4').datetimepicker({ 
       minDate:new Date(), 
     });  
-})
+  Meteor.typeahead.inject();    
+});
 
 Template.list.helpers({
  rides: function(){
@@ -15,6 +16,13 @@ Template.myRides.helpers({
     return Rides.find({'ride.userId':Meteor.userId()});
   }
 }),
+Template.createRide.helpers({
+  cities: function() {
+    //return Cities.find().fetch().map(function(it){ return it.name; })
+    return ["Bangalore", "Chennai", "Hyderabad", "Goa", "Cochin", "Mumbai", "Visakhapatnam", "Vijayawada"]
+    //Meteor.call('fetchCities');
+  }
+}),  
 
 Template.createRide.events({
   'submit': function(e) {
